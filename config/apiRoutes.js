@@ -3,6 +3,7 @@ const router           = express.Router();
 
 const authentications  = require('../controllers/authentications');
 const festivals        = require('../controllers/festivals');
+const weather          = require('../controllers/weather');
 // const users         = require('../controllers/users');
 
 router.route('/register')
@@ -11,6 +12,9 @@ router.route('/login')
 .post(authentications.login);
 router.route('/festivals')
 .get(festivals.index);
+
+router.route('/weather')
+.post(weather.get);
 
 //
 // router.route('/users')

@@ -21,7 +21,7 @@ App.init = function() {
 App.createMap = function() {
   const canvas = document.getElementById('canvas');
   const mapOptions = {
-    zoom: 8,
+    zoom: 4,
     center: new google.maps.LatLng(53.481878, -2.263164),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -61,8 +61,9 @@ App.createMarkerForFestival = function(index, festival){
 App.addInfoWindowForFestival = function(festival, marker) {
   google.maps.event.addListener(marker, 'click', () => {
     if (typeof this.infoWindow !== 'undefined')
-      this.infoWindow = new google.maps.infoWindow({
-        content: `
+      this.infoWindow.close();
+    this.infoWindow = new google.maps.InfoWindow({
+      content: `
     <div class="infoWindow">
     <img class="festivalImage" src="${ festival.image}">
     <h3>${ festival.name} </h3>
@@ -71,7 +72,13 @@ App.addInfoWindowForFestival = function(festival, marker) {
     <p> ${ festival.date} </p>
     </div>
     `
-      });
+    });
+    App.ajaxRequest('http://localhost:3000/api/weather', 'POST', festival, (data) => {
+      $('.infoWindow').append(`
+        <p>${data.weather}</p>
+        <p>${data.weather.icon}</p>
+        `);
+    });
     this.infoWindow.open(this.map, marker);
     this.map.setCenter(marker.getPosition());
   });
