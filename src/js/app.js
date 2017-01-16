@@ -7,8 +7,10 @@ App.init = function() {
   $('.register').on('click', this.register.bind(this));
   $('.login').on('click', this.login.bind(this));
   $('.logout').on('click', this.logout.bind(this));
-  $('.home').on('click', this.homepage.bind(this));
+  // $('.home').on('click', this.homepage.bind(this));
+  $('.map').on('click', this.createMap.bind(this));
   this.$main.on('submit', 'form', this.handleForm);
+
   if (this.getToken()) {
     this.loggedInState();
   } else {
@@ -18,47 +20,61 @@ App.init = function() {
 
 App.createMap = function() {
   const canvas = document.getElementById('canvas');
-
   const mapOptions = {
     zoom: 8,
     center: new google.maps.LatLng(53.481878, -2.263164),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  App.map = new google.maps.Map(canvas, mapOptions);
+  this.map = new google.maps.Map(canvas, mapOptions);
   this.getFestivals();
 };
 
 App.getFestivals = function(){
-  $.get('').done(this.LoopThroughFestivals);
+  return $.get(`${this.apiUrl}/festivals`).done(this.loopThroughFestivals.bind(this));
 };
 
 App.loopThroughFestivals = function(data) {
-  console.log(data);
-  $.each(data, (i, festival) => {
-    setTimeout(function(){
-      App.createMarkerForFestival(festival);
-    },i * 1000);
-  });
+  return $.each(data.festivals, this.createMarkerForFestival.bind(this));
 };
 
-App.createMarkerForFestival = function(festival){
-  const latlng = new google.maps.LatLng(festival.lat, festival.lng);
-  const marker = new google.maps.Marker({
+App.createMarkerForFestival = function(index, festival){
+  const latlng = new
+  google.maps.LatLng(festival.lat, festival.lng);
+
+  var icon = {
+    url: '/images/marker.png',
+    scaledSize: new google.maps.Size(40,65),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 0)
+  };
+
+  const marker = new
+  google.maps.Marker({
     position: latlng,
     map: this.map,
-    icon: '/images/marker.png'
+    animation: google.maps.Animation.DROP,
+    icon
   });
   this.addInfoWindowForFestival(festival, marker);
 };
 
 App.addInfoWindowForFestival = function(festival, marker) {
-  App.event.addListener(marker, 'click', () => {
-    if (typeof this.infoWindow !== 'undefined') this.infoWindow.close();
-
-    // this.infoWindow = new google.maps.InfoWindow({
-    //   content: `<img src="http://www.tfl.gov.uk/tfl/livetravelnews/trafficcams/cctv/${ festival.file }"><p>${ festival.location }</p>`
+  google.maps.event.addListener(marker, 'click', () => {
+    if (typeof this.infoWindow !== 'undefined')
+      this.infoWindow = new google.maps.infoWindow({
+        content: `
+    <div class="infoWindow">
+    <img class="festivalImage" src="${ festival.image}">
+    <h3>${ festival.name} </h3>
+    <p> ${ festival.description} </p>
+    <p> ${ festival.location} </p>
+    <p> ${ festival.date} </p>
+    </div>
+    `
+      });
+    this.infoWindow.open(this.map, marker);
+    this.map.setCenter(marker.getPosition());
   });
-  // });
 };
 
 App.loggedInState = function(){
@@ -124,10 +140,9 @@ App.logout = function(e){
   this.loggedOutState();
 };
 
-App.homepage = function(){
-};
 
 App.handleForm = function(e){
+  console.log(this);
   e.preventDefault();
   const url    = `${App.apiUrl}${$(this).attr('action')}`;
   const method = $(this).attr('method');
@@ -137,6 +152,7 @@ App.handleForm = function(e){
     App.loggedInState();
   });
 };
+
 App.ajaxRequest = function(url, method, data, callback){
   return $.ajax({
     url,
