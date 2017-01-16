@@ -31,16 +31,16 @@ const festivals = [
     genre:	'D&B, Oldschool Jungle, House, Garage, Dubstep, Reggae, Dub, Punk Rock, Swing, Folk, World, Hip-Hop',
     lat:	'51.051546',
     lng:	'-1.245557'
-  }),
-  new Festival({
+  })//,
+//  new Festival({
 
-  })
+//  })
 ];
 
 festivals.forEach(festival => {
   Festival
   .create(festival, (err, festival) => {
     if (err) return console.log(err);
-    return console.log(`${festival.name} was saved`);
+    return console.log(`${festival.name} was saved.`);
   });
 });

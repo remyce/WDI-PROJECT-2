@@ -18,6 +18,7 @@ App.init = function() {
 
 App.createMap = function() {
   const canvas = document.getElementById('canvas');
+
   const mapOptions = {
     zoom: 8,
     center: new google.maps.LatLng(53.481878, -2.263164),
@@ -28,7 +29,7 @@ App.createMap = function() {
 };
 
 App.getFestivals = function(){
-  $.get('http://localhost:3000/festivals').done(this.LoopThroughFestivals);
+  $.get('').done(this.LoopThroughFestivals);
 };
 
 App.loopThroughFestivals = function(data) {
