@@ -4,10 +4,10 @@ const google = google;
 App.init = function() {
   this.apiUrl = 'http://localhost:3000/api';
   this.$main  = $('main');
+  $('.home').on('click', this.homepage.bind(this));
   $('.register').on('click', this.register.bind(this));
   $('.login').on('click', this.login.bind(this));
   $('.logout').on('click', this.logout.bind(this));
-  // $('.home').on('click', this.homepage.bind(this));
   $('.map').on('click', this.createMap.bind(this));
   this.$main.on('submit', 'form', this.handleForm);
 
@@ -18,11 +18,24 @@ App.init = function() {
   }
 };
 
+App.homepage = function(){
+  $('header h1').hide();
+  this.$main.html(`
+    <h1>RIOT</h1>
+    <p>The web app for festival listings and updates<p>
+    <p>Made with &hearts at GA by <b>Remyce<b></p>
+    `);
+};
+
 App.createMap = function() {
   const canvas = document.getElementById('canvas');
   const mapOptions = {
-    zoom: 4,
+    zoom: 3,
     center: new google.maps.LatLng(53.481878, -2.263164),
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.LEFT_CENTER
+    },
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   this.map = new google.maps.Map(canvas, mapOptions);
@@ -43,7 +56,7 @@ App.createMarkerForFestival = function(index, festival){
 
   var icon = {
     url: '/images/marker.png',
-    scaledSize: new google.maps.Size(40,65),
+    scaledSize: new google.maps.Size(30,45),
     origin: new google.maps.Point(0, 0),
     anchor: new google.maps.Point(0, 0)
   };
@@ -61,27 +74,76 @@ App.createMarkerForFestival = function(index, festival){
 App.addInfoWindowForFestival = function(festival, marker) {
   google.maps.event.addListener(marker, 'click', () => {
     if (typeof this.infoWindow !== 'undefined')
-      this.infoWindow.close();
+      this.infoWindow.close(marker, 'click');
     this.infoWindow = new google.maps.InfoWindow({
+      maxWidth: 240,
+      margin: 0,
+      arrowSize: 3,
       content: `
     <div class="infoWindow">
-    <img class="festivalImage" src="${ festival.image}">
-    <h3>${ festival.name} </h3>
+
+    <h2>${ festival.name} </h2>
+    <p><img width="240" src="${festival.image}"/></p>
+    <h4> ${ festival.location} </h4>
+    <h6> ${ festival.date} </h6>
     <p> ${ festival.description} </p>
-    <p> ${ festival.location} </p>
-    <p> ${ festival.date} </p>
+    <p> Genre: ${festival.genre} </p>
+    <p>${festival.website}</p>
     </div>
     `
+
     });
     App.ajaxRequest('http://localhost:3000/api/weather', 'POST', festival, (data) => {
       $('.infoWindow').append(`
-        <p>${data.weather}</p>
-        <p>${data.weather.icon}</p>
+        <p>Weather: ${ data.weather }</p>
+       <p>Weather: ${ data.icon }</p>
+        <img src="${App.getIcon(data.icon)}">
         `);
+      console.log(data);
+      this.infoWindow.open(this.map, marker);
     });
-    this.infoWindow.open(this.map, marker);
     this.map.setCenter(marker.getPosition());
   });
+};
+
+App.getIcon = function(icon) {
+  var image;
+  switch (icon) {
+    case 'rain':
+      image = '../images/rain.png';
+      break;
+    case 'clear-day':
+      image = '../images/clear-day.png';
+      break;
+    case 'clear-night':
+      image = '../images/clear-night.png';
+      break;
+    case 'partly-cloudy-day':
+      image = '../images/partly-cloudy-day.png';
+      break;
+    case 'partly-cloudy-night':
+      image = '../images/partly-cloudy-night';
+      break;
+    case 'cloudy':
+      image = '../images/cloudy.png';
+      break;
+    case 'sleet':
+      image = '../images/sleet.png';
+      break;
+    case 'snow':
+      image = '../images/snow.png';
+      break;
+    case 'wind':
+      image = '../images/wind.png';
+      break;
+    case 'fog':
+      image = '../images/fog.png';
+      break;
+    default:
+      image = '../images/cloudy.png';
+      break;
+  }
+  return image;
 };
 
 App.loggedInState = function(){
@@ -147,7 +209,6 @@ App.logout = function(e){
   this.loggedOutState();
 };
 
-
 App.handleForm = function(e){
   console.log(this);
   e.preventDefault();
@@ -172,6 +233,7 @@ App.ajaxRequest = function(url, method, data, callback){
           console.log(data);
         });
 };
+
 App.setRequestHeader = function(xhr) {
   return xhr.setRequestHeader('Authorization', `Bearer ${this.getToken()}`);
 };
@@ -184,4 +246,5 @@ App.getToken = function(){
 App.removeToken = function(){
   return window.localStorage.clear();
 };
+
 $(App.init.bind(App));
