@@ -19,12 +19,12 @@ App.init = function() {
 };
 
 App.homepage = function(){
-  $('header h1').hide();
   this.$main.html(`
     <h1>RIOT</h1>
+    <p><img src="https://huilohuilo.com/wp-content/uploads/2015/02/MMStd_006.jpg"></p>
     <p>The web app for festival listings and updates<p>
-    <p>Made with &hearts at GA by <b>Remyce<b></p>
     `);
+  console.log('You clicked');
 };
 
 App.createMap = function() {
@@ -47,20 +47,18 @@ App.getFestivals = function(){
 };
 
 App.loopThroughFestivals = function(data) {
-  console.log(data.festivals.length, 'festivals')
+  console.log(data.festivals.length, 'festivals');
   return $.each(data.festivals, this.createMarkerForFestival);
 };
 
 App.createMarkerForFestival = function(index, festival){
   const latlng = new google.maps.LatLng(festival.lat, festival.lng);
 
-  console.log(festival.lat, festival.lng)
+  console.log(festival.lat, festival.lng);
 
   var icon = {
     url: '/images/marker.png',
-    scaledSize: new google.maps.Size(30,45),
-  //   origin: new google.maps.Point(0, 0),
-  //   anchor: new google.maps.Point(0, 0)
+    scaledSize: new google.maps.Size(30,45)
   };
 
   const marker = new google.maps.Marker({
@@ -79,7 +77,7 @@ App.addInfoWindowForFestival = function(festival, marker) {
     App.ajaxRequest('http://localhost:3000/api/weather', 'POST', festival, (data) => {
       console.log(data);
       this.infoWindow = new google.maps.InfoWindow({
-        // maxWidth: 200,
+        maxWidth: 200,
         // maxHeight: 50,
         // margin: 0,
         // arrowSize: 3,
@@ -87,14 +85,27 @@ App.addInfoWindowForFestival = function(festival, marker) {
       <div class="infoWindow">
         <h2>${ festival.name}</h2>
         <p><img src="${festival.image}"/></p>
-        <h4>${ festival.location}</h4>
-        <h6>${ festival.date}</h6>
+        <h6>${ festival.location}</h6>
+        <h6 style="color:#E1BB32;">${ festival.date}</h6>
         <p>${ festival.description}</p>
         <p>Genre: ${festival.genre}</p>
         <p>${festival.website}</p>
-        <p>Weather:${ data.weather }</p>
-        <p>Weather:${ data.icon }</p>
+        <div class="weather">
+        <h6>Weather</h6>
+        <div class="summary">
+        <p>${ data.weather }</p>
+        </div>
+        <div class="weatherXIcon">
+        <p>${ data.icon }</p>
+        </div>
+        <div class="weatherIcon">
         <img src="${App.getIcon(data.icon)}">
+        </div>
+        <div class="weatherTemperature">
+        <p>${ data.temperature }°F</p>
+        </div>
+
+        </div>
       </div>
       `});
       this.infoWindow.open(this.map, marker);
@@ -145,6 +156,7 @@ App.getIcon = function(icon) {
 
 App.loggedInState = function(){
   $('.loggedIn').show();
+  $('.map').show(); //click back to the map when user clicks homepage?
   $('.loggedOut').hide();
   this.$main.html(`
     <div id="canvas"></div>
@@ -155,11 +167,7 @@ App.loggedInState = function(){
 App.loggedOutState = function(){
   $('.loggedIn').hide();
   $('.loggedOut').show();
-  this.register();
-  // this.$main.html(`
-  //   <div id="canvas"></div>
-  //    `);
-  // this.createMap();
+  this.homepage();
 };
 
 App.register = function(e){
@@ -204,10 +212,6 @@ App.logout = function(e){
   e.preventDefault();
   this.removeToken();
   this.loggedOutState();
-};
-
-App.homepage = function() {
-
 };
 
 

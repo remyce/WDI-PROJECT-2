@@ -13,7 +13,7 @@ function getWeather(req, res){
 
   rp(options)
   .then(function (weather) {
-    return res.status(200).json({ weather: weather.daily.summary, icon: weather.daily.icon });
+    return res.status(200).json({ weather: weather.daily.summary, icon: weather.daily.icon, temperature: weather.currently.temperature });
   })
   .catch(function (err) {
     console.log(err);

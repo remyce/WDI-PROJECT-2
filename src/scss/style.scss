@@ -3,9 +3,9 @@ body {
 }
 
 #canvas {
- width: 100%;
- height: 100vh;
- margin: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
 }
 
 img {
@@ -15,6 +15,55 @@ img {
 }
 
 .gm-style .gm-style-iw {
-   font-size: 12px;
+  font-size: 12px;
+}
 
+.navbar-brand{
+  font-family: 'Crystalline';
+}
+
+.div.gm-style{
+  width: 200px;
+}
+
+
+.infoWindow{
+  h2 p {
+    max-width: 100px;
+    margin: 0 auto;
+  }
+
+  h6{
+    text-align: left;
+    font-size: 14px;
+
+  }
+  .weather{
+    // background-color: yellow;
+    width: 100%;
+    text-align: center;
+
+    .summary {
+      text-align: left;
+    }
+    .weatherIcon{
+      float: left;
+      width: 25%;
+      position: relative;
+      right: -29px;
+      bottom: 2px;
+    }
+    .weatherTemparature{
+      float: right;
+      width: 25%;
+      position: relative;
+      left: 29px;
+    }
+    .weatherXIcon{
+      float: left;
+      width: 25%;
+      position: relative;
+      right: -31px;
+    }
+  }
 }
