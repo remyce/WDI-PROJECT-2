@@ -47,62 +47,59 @@ App.getFestivals = function(){
 };
 
 App.loopThroughFestivals = function(data) {
-  return $.each(data.festivals, this.createMarkerForFestival.bind(this));
+  console.log(data.festivals.length, 'festivals')
+  return $.each(data.festivals, this.createMarkerForFestival);
 };
 
 App.createMarkerForFestival = function(index, festival){
-  const latlng = new
-  google.maps.LatLng(festival.lat, festival.lng);
+  const latlng = new google.maps.LatLng(festival.lat, festival.lng);
+
+  console.log(festival.lat, festival.lng)
 
   var icon = {
     url: '/images/marker.png',
     scaledSize: new google.maps.Size(30,45),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(0, 0)
+  //   origin: new google.maps.Point(0, 0),
+  //   anchor: new google.maps.Point(0, 0)
   };
 
-  const marker = new
-  google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: latlng,
-    map: this.map,
+    map: App.map,
     animation: google.maps.Animation.DROP,
     icon
   });
-  this.addInfoWindowForFestival(festival, marker);
+  App.addInfoWindowForFestival(festival, marker);
 };
 
 App.addInfoWindowForFestival = function(festival, marker) {
   google.maps.event.addListener(marker, 'click', () => {
-    if (typeof this.infoWindow !== 'undefined')
-      this.infoWindow.close(marker, 'click');
-    this.infoWindow = new google.maps.InfoWindow({
-      maxWidth: 240,
-      margin: 0,
-      arrowSize: 3,
-      content: `
-    <div class="infoWindow">
+    if (typeof this.infoWindow !== 'undefined') this.infoWindow.close(marker,'click');
 
-    <h2>${ festival.name} </h2>
-    <p><img width="240" src="${festival.image}"/></p>
-    <h4> ${ festival.location} </h4>
-    <h6> ${ festival.date} </h6>
-    <p> ${ festival.description} </p>
-    <p> Genre: ${festival.genre} </p>
-    <p>${festival.website}</p>
-    </div>
-    `
-
-    });
     App.ajaxRequest('http://localhost:3000/api/weather', 'POST', festival, (data) => {
-      $('.infoWindow').append(`
-        <p>Weather: ${ data.weather }</p>
-       <p>Weather: ${ data.icon }</p>
-        <img src="${App.getIcon(data.icon)}">
-        `);
       console.log(data);
+      this.infoWindow = new google.maps.InfoWindow({
+        // maxWidth: 200,
+        // maxHeight: 50,
+        // margin: 0,
+        // arrowSize: 3,
+        content: `
+      <div class="infoWindow">
+        <h2>${ festival.name}</h2>
+        <p><img src="${festival.image}"/></p>
+        <h4>${ festival.location}</h4>
+        <h6>${ festival.date}</h6>
+        <p>${ festival.description}</p>
+        <p>Genre: ${festival.genre}</p>
+        <p>${festival.website}</p>
+        <p>Weather:${ data.weather }</p>
+        <p>Weather:${ data.icon }</p>
+        <img src="${App.getIcon(data.icon)}">
+      </div>
+      `});
       this.infoWindow.open(this.map, marker);
+      this.map.setCenter(marker.getPosition());
     });
-    this.map.setCenter(marker.getPosition());
   });
 };
 
@@ -208,6 +205,11 @@ App.logout = function(e){
   this.removeToken();
   this.loggedOutState();
 };
+
+App.homepage = function() {
+
+};
+
 
 App.handleForm = function(e){
   console.log(this);

@@ -30,7 +30,7 @@ const festivals = [
     date:	'10th-13th August 2017',
     genre:	'D&B, Oldschool Jungle, House, Garage, Dubstep, Reggae, Dub, Punk Rock, Swing, Folk, World, Hip-Hop',
     lat:	'51.051546',
-    lon:	'-1.245557'
+    lng:	'-1.245557'
   })
 ];
 
