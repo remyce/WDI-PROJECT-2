@@ -1,5 +1,5 @@
 module.exports = {
   port: process.env.PORT || 3000,
-  db: 'mongodb://localhost/wdi-project-2',
-  secret: process.env.SECRET || 'this is a secret.'
+  db: process.env.MONGODB_URI || 'mongodb://localhost/wdi-project-2',
+  secret: process.env.SECRET || 'riot-app-secret'
 };
