@@ -284,7 +284,7 @@ const festivals = [
     lng:	'23.808389'
   }),
   new Festival({
-    name:	'latitude festival',
+    name:	'Latitude festival',
     description:	'latitude combines art, theatre, comedy, cabaret, poetry, politics, dance and culture and showcases a variety of musicians, bands and artists across four stages.',
     website:	'http://www.lat:itudefestival.com/',
     location:	'Henham Park, Suffolk',
@@ -373,7 +373,7 @@ const festivals = [
   }),
   new Festival({
     name:	'Snowbombing',
-    description:	'A festival up a mountain 8,497ft above ordinary, in one of the finest ski resorts in Europe, showcasing world class acts in the most unique venues imaginable (think igloo rave, enchanted forest party, underground tennis club turned super club). Luxury spas, authentic alpine cuisine and not a tent in sight. Blue runs, black runs, schnapps runs. Chalet go on?',
+    description: 'A festival up a mountain 8,497ft above ordinary, in one of the finest ski resorts in Europe, showcasing world class acts in the most unique venues imaginable (think igloo rave, enchanted forest party, underground tennis club turned super club). Luxury spas, authentic alpine cuisine and not a tent in sight. Blue runs, black runs, schnapps runs. Chalet go on?',
     website:	'http://snowbombing.com/',
     location:	'Mayrhofen',
     country:	'Austria',
