@@ -11,7 +11,6 @@ const festivals = [
   new Festival({
     name: 'Fat Out Fest',
     description:	'Experimental music and art festival',
-    // image:	'http://static-29.sinclairstoryline.com/resources/media/1ecee4ab-c2d2-438f-88f3-b62e89b1d328-TourdeFat2016_35.jpg',
     website:	'http://www.fatout.co.uk',
     location:	'Islington Mill, Salford',
     country:	'UK',
@@ -23,8 +22,7 @@ const festivals = [
   new Festival({
     name:	'BoomTown Fair',
     description: 'A multi-genre music and arts festival.',
-    image: '/images/boomtown.jpg',
-    website:	'http://www.boomtownfair.co.uk/',
+    website:	'http://www.boomtownfair.co.uk',
     location:	'Temple Valley, Winchester',
     country:	'UK',
     date:	'10th-13th August 2017',
@@ -35,7 +33,6 @@ const festivals = [
   new Festival({
     name:	'Insomnifest',
     description:	'Set in six diverse indoor and outdoor areas offering a different musical vibe and atmosphere',
-    image:	'insomnifest.png',
     website: 'https://www.skiddle.com/whats-on/Leeds/Beaver-Works/Insomnifest-2017/12881095',
     location:	'Beaverworks, Leeds',
     country:	'UK',
@@ -47,7 +44,6 @@ const festivals = [
   new Festival({
     name:	'Live At Leeds',
     description:	'North Englands leading metropolitan festival showcasing new music.',
-    image:	'liveatleeds.png',
     website:	'http://liveatleeds.com/',
     location:	'Various, Leeds',
     country:	'UK',
@@ -59,7 +55,6 @@ const festivals = [
   new Festival({
     name:	'Sounds From The Other City',
     description:	'Celebration of new music and performance',
-    image:	'soundsfrom.png',
     website:	'http://www.soundsfromtheothercity.com/',
     location:	'Islington Mill, Salford',
     country:	'UK',
@@ -71,7 +66,6 @@ const festivals = [
   new Festival({
     name:	'Alfresco',
     description:	'3 day underground music festival located in the heart of Kent.',
-    image:	'alfresco.png',
     website:	'http://alfrescofestival.co.uk/',
     location:	'Royal Tunbridge Wells, Kent',
     country:	'UK',
@@ -83,7 +77,6 @@ const festivals = [
   new Festival({
     name:	'Soundwave festival Croatia',
     description:	'A festival hidden away in a secluded cove with an evolving line up of global mucians, club nights and boat parties and activities such as snorkelling, diving and fishing.',
-    image:	'soundwave.png',
     website:	'http://www.soundwavecroatia.com/',
     location:	'The Garden in Tisno',
     country:	'Croatia',
@@ -95,7 +88,6 @@ const festivals = [
   new Festival({
     name:	'Linton festival',
     description:	'Since 2001 Linton festival has gone from strength to strength with quality bands, memorable performances, plus improvements to venue and facilities.',
-    image:	'linton.png',
     website:	'http://www.lintonfestival.org/',
     location:	'Ross-On-Wye',
     country:	'UK',
@@ -107,7 +99,6 @@ const festivals = [
   new Festival({
     name:	'Live Expressions',
     description:	'A boutique festival featuring the finest emerging artists, DJs and performers.',
-    image:	'live.png',
     website:	'http://www.liveexpressions.co.uk/',
     location:	'Colebrook Lakes, Royal Tunbridge Well',
     country:	'UK',
@@ -119,7 +110,6 @@ const festivals = [
   new Festival({
     name:	'Samphire festival',
     description:	'Independent music and arts festival with magical sea views, quirky workshops and day time activities.',
-    image:	'samphire.png',
     website:	'https://samphirefestival.com/',
     location:	'Exmoor National Park',
     country:	'UK',
@@ -131,7 +121,6 @@ const festivals = [
   new Festival({
     name:	'Common People - Oxford',
     description:	'A glorious two day metropolitan festival on south park brought to Oxford by the multi-award winning Bestival team.',
-    image:	'common.png',
     website:	'http://oxford.commonpeople.net/',
     location:	'South Park, Oxford',
     country:	'UK',
@@ -143,7 +132,6 @@ const festivals = [
   new Festival({
     name:	'We Are FSTVL',
     description:	'A huge weekend in May combines some of the world\'s biggest names in EDM with some of the world\'s leading club brands and labels for 50000 FSTVL fans.',
-    image:	'weare.png',
     website:	'http://www.wearefstvl.com',
     location:	'Upminster, London',
     country:	'UK',
@@ -155,7 +143,6 @@ const festivals = [
   new Festival({
     name:	'Leestock',
     description:	'A music festival which raises money for the willow foundation charity, which gives special days to seriously ill young adults.',
-    image:	'leestock.png',
     website:	'http://leestock.org/',
     location:	'Melford Hall, Suffolk',
     country:	'UK',
@@ -167,7 +154,6 @@ const festivals = [
   new Festival({
     name:	'Sea Star festival',
     description:	'The team behind the four awards for best European festivals (EXIT and Sea Dance) bring you Sea Star festival.',
-    image:	'seastar.png',
     website:	'http://www.seastarfestival.com/en/',
     location:	'Stella Maris, Umag',
     country:	'Croatia',
@@ -179,7 +165,6 @@ const festivals = [
   new Festival({
     name:	'Breaking Bands festival',
     description:	'A festival which aims to bring the very best of the bands of the future into one place.',
-    image:	'breaking.png',
     website:	'https://breakingbandsfestival.com/',
     location:	'Stoke Prior Sports & country: Club, Bromsgrove',
     country:	'UK',
@@ -191,7 +176,6 @@ const festivals = [
   new Festival({
     name:	'Sonus festival',
     description:	'Good times with good people - bring it back! Presented by Sonus and Cosmopop',
-    image:	'sonus.png',
     website:	'http://www.sonus-festival.com/',
     location:	'Pag Island, Novalja',
     country:	'Croatia',
@@ -203,7 +187,6 @@ const festivals = [
   new Festival({
     name: 'Forbidden Forest',
     description:	'Unique forest parties',
-    image:	'forbidden.png',
     website:	'http://www.forbidden-forest.co.uk/',
     location:	'Donington Forest, Derbyshire',
     country:	'UK',
@@ -215,7 +198,6 @@ const festivals = [
   new Festival({
     name:	'The Great Escape',
     description:	'A festival for new music, showcasing 450 emerging artists in 30+ walkable venues across the city.',
-    image:	'greatescape.png',
     website:	'http://greatescapefestival.com/',
     location:	'Various Venues, Brighton',
     country:	'UK',
@@ -227,7 +209,6 @@ const festivals = [
   new Festival({
     name:	'Solfest',
     description:	'From a local shindig to one of the best loved of UK\'s independent festivals.',
-    image:	'solfest.png',
     website:	'http://www.solfest.org.uk/',
     location:	'Tarnside Farm, Cumbria',
     country:	'UK',
@@ -239,7 +220,6 @@ const festivals = [
   new Festival({
     name:	'Lost Village',
     description:	'Immersive festival experience in an abandoned woodland village.',
-    image:	'lostvillage.png',
     website:	'http://lostvillagefestival.com/',
     location:	'Secret Village, Lincolnshire',
     country:	'UK',
@@ -251,7 +231,6 @@ const festivals = [
   new Festival({
     name:	'Creamfields',
     description:	'British dance music festival featuring DJs and live acts.',
-    image:	'creamfields.png',
     website:	'www.creamfields.com',
     location:	'Darresbury, Warrington',
     country:	'UK',
@@ -263,7 +242,6 @@ const festivals = [
   new Festival({
     name:	'Camp Bestival',
     description:	'A multi-award winning festival that combines an all-encompassing family festival experience with an action packed camping holiday.',
-    image:	'campbestival.png',
     website:	'http://www.campbestival.net/',
     location:	'Lulworth Castle, East Lulwoth',
     country:	'UK',
@@ -275,7 +253,6 @@ const festivals = [
   new Festival({
     name:	'Labyrinth Open',
     description:	'A brand new four day festival for Croatia this year .',
-    image:	'labyrinth.png',
     website:	'http://www.labyrinthopen.com/',
     location:	'Kamp Galeb, Omis',
     country:	'Croatia',
@@ -287,7 +264,6 @@ const festivals = [
   new Festival({
     name:	'Fresh Island festival',
     description:	'An urban beach festival in the sunny shores of Novalja\'s Zrće Beach.',
-    image:	'freshisland.png',
     website:	'http://fresh-island.org/',
     location:	'Zcre Beach, Isle of Pag',
     country:	'Croatia',
@@ -299,7 +275,6 @@ const festivals = [
   new Festival({
     name:	'Electric Castle',
     description:	'A unique festival experience on the spectacular Transylvanian domain of the Banffy Castle.',
-    image:	'electriccastle.png',
     website:	'https://www.electriccastle.ro/',
     location:	'Banffy Castle in Bontida, Cluj',
     country:	'Romania',
@@ -311,7 +286,6 @@ const festivals = [
   new Festival({
     name:	'latitude festival',
     description:	'latitude combines art, theatre, comedy, cabaret, poetry, politics, dance and culture and showcases a variety of musicians, bands and artists across four stages.',
-    image:	'latitude.png',
     website:	'http://www.lat:itudefestival.com/',
     location:	'Henham Park, Suffolk',
     country:	'UK',
@@ -323,7 +297,6 @@ const festivals = [
   new Festival({
     name:	'Farr festival',
     description:	'From a small gathering of like-minded friends to one of  UK\'s leading electronic music festivals within an uninhabited forest.',
-    image:	'farr.png',
     website:	'http://www.farrfestival.co.uk/',
     location:	'Bygrave Wood, Hertfordshire',
     country:	'UK',
@@ -335,7 +308,6 @@ const festivals = [
   new Festival({
     name:	'Lovebox',
     description:	'The first ever party was thrown in an old strip club off Tottenham Court Road. In 2005 it changed to a two day event and moved to Victoria Park. Bringing good vibes and love each year.',
-    image:	'lovebox.png',
     website:	'http://loveboxfestival.com/',
     location:	'Victoria Park, London',
     country:	'UK',
@@ -347,7 +319,6 @@ const festivals = [
   new Festival({
     name:	'Ultra Europe',
     description:	'A multi venue outdoor electronic festival which is a part of the Ultra Music festival worldwide expansion.',
-    image:	'ultra.png',
     website:	'https://ultraeurope.com',
     location:	'Poljud Stadium, Split',
     country:	'Croatia',
@@ -359,7 +330,6 @@ const festivals = [
   new Festival({
     name:	'Suncebeat',
     description:	'A music festival brought to you by the team behind Southport Weekender, situated further afield in Croatia at the famous Garden Tisno. Expect exclusive DJ line ups and some of the best artists in House music.',
-    image:	'sunce.png',
     website:	'http://suncebeat.com/',
     location:	'The Garden In Tisno',
     country:	'Croatia',
@@ -371,7 +341,6 @@ const festivals = [
   new Festival({
     name:	'Deer Shed festival',
     description:	'A family friendly three day contemporary music, arts and science festival.',
-    image:	'deershed.png',
     website:	'http://deershedfestival.com/',
     location:	'Baldersby Park, Thirsk',
     country:	'UK',
@@ -379,6 +348,105 @@ const festivals = [
     genre:	'Folk, Pop, Rock',
     lat:	'54.176323',
     lng:	'-1.397169'
+  }),
+  new Festival({
+    name:	'Outlook festival',
+    description:	'End of summer festival spread over four days,  largest soundsystem Culture festival in Europe.',
+    website:	'http://www.outlookfestival.com/',
+    location:	'Fort Punta Christo, Pula',
+    country:	'Croatia',
+    date:	'7th-10th September 2017',
+    genre:	'Dub, Reggae, Hip-Hop, D&B, Garage, Grime',
+    lat:	'44.892035',
+    lng:	'13.798267'
+  }),
+  new Festival({
+    name: 'Hideout	Hideout',
+    description:	'A 5 day and night festival in a unique location: on Zcre Beach. The lineup gets bigger each year!',
+    website:	'http://www.hideoutfestival.com/',
+    location:	'Zcre Beach, Novalija',
+    country:	'Croatia',
+    date:	'26th-30th June 2017',
+    genre:	'House, Techno, Electro, Disco, Electronic',
+    lat:	'44.540177',
+    lng:	'14.914313'
+  }),
+  new Festival({
+    name:	'Snowbombing',
+    description:	'A festival up a mountain 8,497ft above ordinary, in one of the finest ski resorts in Europe, showcasing world class acts in the most unique venues imaginable (think igloo rave, enchanted forest party, underground tennis club turned super club). Luxury spas, authentic alpine cuisine and not a tent in sight. Blue runs, black runs, schnapps runs. Chalet go on?',
+    website:	'http://snowbombing.com/',
+    location:	'Mayrhofen',
+    country:	'Austria',
+    date:	'3rd-8th April 2017',
+    genre:	'EDM',
+    lat:	'47.163285',
+    lng:	'11.86064'
+  }),
+  new Festival({
+    name:	'Annie Mac Presents Lost & Found',
+    description:	'All night raves, pool parties, boat parties, castle raves, sunsets and cocktails. All on the sunny island of Malta',
+    website:	'http://www.lostandfoundfestival.com/',
+    location:	'St Pauls Bay',
+    country:	'Malta',
+    date:	'13th-16th April 2017',
+    genre:	'House, Techno',
+    lat:	'35.937242',
+    lng:	'14.397981'
+  }),
+  new Festival({
+    name:	'Kendal Calling',
+    description:	'An independent 3 day music festival',
+    website:	'http://www.kendalcalling.co.uk/',
+    location:	'Lowther Deer Park, Cumbria',
+    country:	'UK',
+    date:	'27th-30th July 2017',
+    genre:	'Rock, Indie, Dance, Folk, Electro',
+    lat:	'54.608241',
+    lng:	'-2.732306'
+  }),
+  new Festival({
+    name:	'Farm festival',
+    description:	'This is a homemade, down to earth creative and collaborative festival. Its dedicated to showcasing the best emerging talents, cult heros and DJs.',
+    website:	'http://www.farmfestival.co.uk/',
+    location:	'Gilcombe Farm in Bruton, Somerset',
+    country:	'UK',
+    date:	'28th-29th July 2017',
+    genre:	'Rock, Pop, Alternative, Indie, Dance, Electronic, Folk, Hip-Hop, Brass Band, Spoken Word, Reggae',
+    lat:	'51.126997',
+    lng:	'-2.436284'
+  }),
+  new Festival({
+    name:	'Made festival',
+    description:	'A celebration of arts, music and culture.',
+    website:	'http://www.madebirmingham.com/',
+    location:	'The Digbeth Triangle, Birmingham',
+    country:	'UK',
+    date:	'29th July 2017',
+    genre:	'Various',
+    lat:	'52.475577',
+    lng:	'-1.882579'
+  }),
+  new Festival({
+    name:	'Wilderness festival',
+    description:	'The team behind Secret Garden Party bring the same hedonistic vibe along with a variety of workshops and art activites.',
+    website:	'https://www.wildernessfestival.com/',
+    location:	'Cornbury Park, Charlbury',
+    country:	'UK',
+    date:	'3rd-6th August 2017',
+    genre:	'Alternative, Folk, Indie',
+    lat:	'51.862833',
+    lng:	'-1.492385'
+  }),
+  new Festival({
+    name:	'Wickham festival',
+    description:	'A weekend village festival where you can enjoy excellent music, fine food, great company and lovely surroundings.',
+    website:	'http://www.wickhamfestival.co.uk/',
+    location:	'Wickham, Hampshire',
+    country:	'UK',
+    date:	'3rd-6th August 2017',
+    genre:	'Folk, World, Traditional, Rock, Pop',
+    lat:	'50.908015',
+    lng:	'-1.188592'
   })
 
 ];

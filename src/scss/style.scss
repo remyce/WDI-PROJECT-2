@@ -1,5 +1,29 @@
-body {
+body{
   font-family: 'Quicksand', sans-serif;
+
+
+  body main{
+    // background: yellow;
+    background: #FEFAED;
+  }
+
+  h1{
+    font-size: 250px;
+    text-align: center;
+    position: relative;
+    font-family: 'Crystalline';
+    color: #F26521;
+    margin-top: 12%;
+  }
+
+  main h1{
+    font-size: 70%;
+  }
+
+  main > p{
+    text-align: center;
+  }
+
 }
 
 #canvas {
@@ -18,52 +42,64 @@ img {
   font-size: 12px;
 }
 
-.navbar-brand{
-  font-family: 'Crystalline';
-}
+.navbar{
+  background: #FEFAED;
 
-.div.gm-style{
-  width: 200px;
-}
-
-
-.infoWindow{
-  h2 p {
-    max-width: 100px;
-    margin: 0 auto;
-  }
-
-  h6{
-    text-align: left;
-    font-size: 14px;
+  .navbar-light > .navbar-nav > .nav-link{
+    margin-top: -3px;
+    color: #000;
 
   }
-  .weather{
-    // background-color: yellow;
-    width: 100%;
-    text-align: center;
 
-    .summary {
+  .navbar-brand{
+    font-family: 'Crystalline';
+    position: relative;
+    width: 5%;
+    margin: 0;
+  }
+
+  .div.gm-style{
+    width: 200px;
+  }
+
+
+  .infoWindow{
+    h2 p {
+      max-width: 100px;
+      margin: 0 auto;
+    }
+
+    h6{
       text-align: left;
+      font-size: 14px;
+
     }
-    .weatherIcon{
-      float: left;
-      width: 25%;
-      position: relative;
-      right: -29px;
-      bottom: 2px;
-    }
-    .weatherTemparature{
-      float: right;
-      width: 25%;
-      position: relative;
-      left: 29px;
-    }
-    .weatherXIcon{
-      float: left;
-      width: 25%;
-      position: relative;
-      right: -31px;
+    .weather{
+      // background-color: yellow;
+      width: 100%;
+      text-align: center;
+
+      .summary {
+        text-align: left;
+      }
+      .weatherIcon{
+        float: left;
+        width: 25%;
+        position: relative;
+        right: -29px;
+        bottom: 2px;
+      }
+      .weatherTemparature{
+        float: right;
+        width: 25%;
+        position: relative;
+        left: 29px;
+      }
+      .weatherXIcon{
+        float: left;
+        width: 25%;
+        position: relative;
+        right: -31px;
+      }
     }
   }
-}

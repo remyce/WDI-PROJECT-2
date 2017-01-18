@@ -19,8 +19,6 @@ function getWeather(req, res){
     console.log(err);
   });
 
-
-
 }
 
 module.exports = {
